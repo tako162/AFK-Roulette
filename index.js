@@ -26,6 +26,7 @@ const client = new Client({
 // お手製
 const app_root = require("app-root-path");
 const config = require(app_root + "/config.js");
+const load_commands = require("./startup/load_commands");
 // bot起動時の処理
 client.on("ready", () => {
   console.log("ready!");
