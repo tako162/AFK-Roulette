@@ -8,16 +8,16 @@ const string = require(app_root + "/strings/string.js");
 module.exports = {
   // スラッシュコマンド登録
   data: new Discord.SlashCommandBuilder()
-    .setName(string.TEST)
-    .setDescription(string.TEST_DESCRIPTION),
+    .setName(string.DRAW)
+    .setDescription(string.DRAW_DESCRIPTION),
   // コマンド処理
   async execute(interaction, client) {
     // コマンド実行ログ
-    console.log("/" + string.TEST);
+    console.log("/" + string.DRAW);
     // Embed
     const embed = new Discord.EmbedBuilder()
       .setTitle(string.EMBED_TITLE_SUCCESS)
-.setDescription(string.ZERO_SPACE)
+      .setDescription(string.ZERO_SPACE)
       .addFields([
         { name: "WebSocket", value: `**${client.ws.ping} ms**` },
         {
