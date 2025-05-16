@@ -4,8 +4,8 @@
 exports.PING = "ping";
 exports.PING_DESCRIPTION = "botが正常に動作しているかをチェックします。";
 
-exports.DRAW = "DRAW";
-exports.DRAW_DESCRIPTION = "DRAW_DESCRIPTION";
+exports.DRAW = "draw";
+exports.DRAW_DESCRIPTION = "描画コマンドです";
 /**
  * EMBED
  */
