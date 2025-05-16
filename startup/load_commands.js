@@ -1,3 +1,4 @@
+console.log("load_commands.js が読み込まれました");
 const fs = require("fs");
 const Discord = require("discord.js");
 const commandFolders = fs.readdirSync("./commands");

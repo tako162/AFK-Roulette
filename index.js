@@ -26,15 +26,27 @@ const client = new Client({
 // お手製
 const app_root = require("app-root-path");
 const config = require(app_root + "/config.js");
-const load_commands = require("./startup/load_commands");
+const load_commands = require(app_root + "/startup/load_commands.js");
+/**
+ * スラッシュコマンド登録処理
+ */
+const deploy_commands = require(app_root + "/startup/deploy_commands.js");
+deploy_commands.start();
+/**
+ * インタラクション（コマンド）受信時の処理
+ */
+const interaction_create_handler = require(
+  app_root + "/startup/interaction_create_handler.js",
+);
+interaction_create_handler.call(client);
 // bot起動時の処理
 client.on("ready", () => {
-  console.log("ready!");
-  client.user.setPresence({
-    activities: [{ name: `Blue Archive` }],
-    status: "online",
-  });
-  client.channels.cache.get(config.channels.log).send("起動");
+  // console.log("ready!");
+  // client.user.setPresence({
+  //   activities: [{ name: `XXX` }],
+  //   status: "online",
+  // });
+  client.channels.cache.get(config.channels.log).send("MSG");
 
   // スラッシュコマンドの読込
   load_commands.start(client);

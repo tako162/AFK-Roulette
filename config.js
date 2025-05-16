@@ -1,6 +1,8 @@
 module.exports = {
-  clientId: process.env.DISCORD_CLIENT_ID,
   token: process.env.BOT_TOKEN,
+  clientId: process.env.DISCORD_CLIENT_ID,
+  guildId: process.env.DEV_GUILD_ID,
+  useGuildCommands: true,
   colors: {
     success: "000080",
   },
