@@ -25,9 +25,9 @@ module.exports = {
 
     const timeoutSpan = interaction.options.getInteger("timeout_span");
     const roll = interaction.options.getRole("roll");
-    const replyMessage = ``;
-    if (roll.name == "everyone") {
-      replyMessage = `everyoneを指定することはおすすめできません。/n本当にいいですか？`;
+    let replyMessage = ``;
+    if (roll.name == "@everyone") {
+      replyMessage = `everyoneを指定することはおすすめしません。/n本当にいいですか？`;
     } else {
       replyMessage = `選択されたタイムアウト期間: ${timeoutSpan}日\n選択されたロール: ${roll.name}`;
     }
