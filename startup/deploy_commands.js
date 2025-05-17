@@ -1,5 +1,5 @@
 console.log("deploy_commands.js が読み込まれました");
-// お手製
+
 const app_root = require("app-root-path");
 const config = require(app_root + "/config.js");
 

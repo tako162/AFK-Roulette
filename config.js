@@ -7,6 +7,6 @@ module.exports = {
     success: "000080",
   },
   channels: {
-    log: process.env.CHANNEL_ID,
+    log: process.env.DEV_CHANNEL_ID,
   },
 };

@@ -23,7 +23,6 @@ const client = new Client({
     Partials.Reaction,
   ],
 });
-// お手製
 const app_root = require("app-root-path");
 const config = require(app_root + "/config.js");
 const load_commands = require(app_root + "/startup/load_commands.js");
@@ -41,13 +40,7 @@ const interaction_create_handler = require(
 interaction_create_handler.call(client);
 // bot起動時の処理
 client.on("ready", () => {
-  // console.log("ready!");
-  // client.user.setPresence({
-  //   activities: [{ name: `XXX` }],
-  //   status: "online",
-  // });
-  client.channels.cache.get(config.channels.log).send("MSG");
-
+  client.channels.cache.get(config.channels.log).send("started");
   // スラッシュコマンドの読込
   load_commands.start(client);
 });
