@@ -1,11 +1,18 @@
 const API_URL = process.env.API_URL;
 const API_SECRET = process.env.API_SECRET;
 
+// パラメータをURLエンコード形式に変換するユーティリティ
+function toFormData(obj) {
+  return new URLSearchParams(obj).toString();
+}
+
 async function fetchSettings(guildId) {
   const res = await fetch(API_URL, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: toFormData({
       secret: API_SECRET,
       guild_id: guildId,
       action: "get",
@@ -19,12 +26,14 @@ async function fetchSettings(guildId) {
 async function saveSettings(guildId, newSettings) {
   const res = await fetch(API_URL, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: toFormData({
       secret: API_SECRET,
       guild_id: guildId,
       action: "set",
-      settings: newSettings,
+      settings: JSON.stringify(newSettings),
     }),
   });
 
