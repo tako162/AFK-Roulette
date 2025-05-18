@@ -2,8 +2,6 @@
 const Discord = require("discord.js");
 // app-root-path
 const app_root = require("app-root-path");
-const config = require(app_root + "/config.js");
-const string = require(app_root + "/strings/string.js");
 const settingAPI = require(app_root + "/settingsAPI.js");
 module.exports = {
   // スラッシュコマンド登録
@@ -14,7 +12,7 @@ module.exports = {
   async execute(interaction) {
     console.log("/status");
 
-    await interaction.deferReply(); // これが重要
+    await interaction.deferReply();
 
     const settings = await settingAPI.fetchSettings(interaction.guild.id);
 
