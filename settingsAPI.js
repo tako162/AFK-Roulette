@@ -1,13 +1,12 @@
-const API_URL = process.env.API_URL;
+const API_ENDPOINT = process.env.API_ENDPOINT;
 const API_SECRET = process.env.API_SECRET;
-
 // パラメータをURLエンコード形式に変換するユーティリティ
 function toFormData(obj) {
   return new URLSearchParams(obj).toString();
 }
 
 async function fetchSettings(guildId) {
-  const res = await fetch(API_URL, {
+  const res = await fetch(API_ENDPOINT, {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -24,7 +23,7 @@ async function fetchSettings(guildId) {
 }
 
 async function saveSettings(guildId, newSettings) {
-  const res = await fetch(API_URL, {
+  const res = await fetch(API_ENDPOINT, {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -39,3 +38,5 @@ async function saveSettings(guildId, newSettings) {
 
   if (!res.ok) throw new Error("設定の保存に失敗しました");
 }
+
+module.exports = { fetchSettings, saveSettings };
